@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org"> <head> 
+<meta charset="UTF-8" /> 
+<title>Insert title here</title> 
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"  /> 
+</head> 
+<body> 
+<div class="container"> 
+<table class="table">  
+<thead>   
+<tr>      
+<th scope="col">id</th>      
+<th scope="col">Nombre</th>      
+<th scope="col">1er Apellido</th>     
+<th scope="col">2do Apellido</th>  
+<th scope="col">Documento</th>  
+<th scope="col">Nacionalidad</th> 
+<th scope="col">Fecha de Ingreso</th>      
+<th scope="col">Fecha de Baja</th>  
+<th scope="col">Email</th>  
+<th scope="col">Tipo</th>      
+<th scope="col">Estado</th>   
+
+</tr>  
+</thead>  
+<!--tfoot>   
+<tr> 
+
+<td>Sum</td>      
+<td>$180</td>   
+</tr>  
+</tfoot-->  
+<tbody>   
+<tr th:each="CLIENTE: ${CLIENTE}">      
+<td th:text="${CLIENTE.CLI_NUM_DOCUMENTO}"/>      
+<td th:text="${CLIENTE.NOMBRE}" />      
+<td th:text="${CLIENTE.APELL_1}" />
+<td th:text="${CLIENTE.APELL_2}" /> 
+<td th:text="${CLIENTE.TIP_DOCUMENTO}" /> 
+<td th:text="${CLIENTE.NACIONALIDAD}" /> 
+<td th:text="${CLIENTE.F_INGRESO}" /> 
+<td th:text="${CLIENTE.F_BAJA}" />  
+<td th:text="${CLIENTE.EMAIL}" />  
+<td th:text="${CLIENTE.TIP_CLI}" />        
+<td th:text="${CLIENTE.COD_ESTADO}" />      
+ 
+<td> <a th:href="@{/form/} + ${CLIENTE.CLI_NUM_DOCUMENTO}" th:text="'Editar'" class="btn btn-primary btn-xs" ></a></td>      
+<td> <a th:href="@{/eliminar/} + ${CLIENTE.CLI_NUM_DOCUMENTO}" th:text="'Eliminar'" class="btn btn-danger btn-xs" onclick="return confirm('Estas seguro?')" ></a></td>   
+</tr>  
+</tbody> 
+</table> 
+</div> 
+ 
+<a th:href="@{/form}">Crear cliente</a> 
+ 
+ 
+ 
+ 
+ 
+</body> </html> 
